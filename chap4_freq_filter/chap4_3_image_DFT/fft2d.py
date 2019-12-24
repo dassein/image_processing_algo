@@ -25,7 +25,7 @@ def fft2d(img):
 
 def ifft2d(freq_spectrum):
     img_conj = fft2d( np.conjugate(freq_spectrum) )
-    return np.conjugate( img_conj ) / (freq_spectrum.shape[0] * freq_spectrum.shape[0])
+    return np.conjugate( img_conj ) / (freq_spectrum.shape[0] * freq_spectrum.shape[1])
 
 norm = lambda x: np.absolute(x)
 
