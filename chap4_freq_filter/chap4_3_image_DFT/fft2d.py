@@ -12,13 +12,12 @@ def pad2d(img): # img: narray
     img_pad = np.pad(img, [(0, 2**s-H), (0, 2**t-W)], mode='constant')
     return img_pad
 
-
 def fft2d(img):
     freq_spectrum = np.zeros_like(img, dtype=complex)
-    M, N = img.shape[0], img.shape[1]
-    for ii in range(M):
+    H, W = img.shape[0], img.shape[1]
+    for ii in range(H):
         freq_spectrum[ii, :] = fft(img[ii, :])
-    for jj in range(N):
+    for jj in range(W):
         freq_spectrum[:, jj] = fft(freq_spectrum[:, jj])
     return freq_spectrum
 
