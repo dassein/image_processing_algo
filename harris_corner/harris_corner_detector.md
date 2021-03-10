@@ -19,8 +19,7 @@ where $w_{R}=0.299, w_{B}=0.587, w_{G}=1-\left(w_{R}+w_{B}\right)$
 
 We compute derivatives with **Sobel** operator
 $$
-\begin{aligned}
-I_x &= \frac{\partial I}{\partial x} \approx 
+I_x = \frac{\partial I}{\partial x} \approx 
 \left[\begin{array}{lll}
 +1 & 0 & -1 \\
 +2 & 0 & -2 \\
@@ -31,8 +30,10 @@ I_x &= \frac{\partial I}{\partial x} \approx
 \end{array}\right] *\left(\left[\begin{array}{lll}
 +1 & 0 & -1
 \end{array}\right] * I\right)
-\\
-I_y &= \frac{\partial I}{\partial y} \approx 
+$$
+
+$$
+I_y = \frac{\partial I}{\partial y} \approx 
 \left[\begin{array}{ccc}
 +1 & +2 & +1 \\
 0 & 0 & 0 \\
@@ -43,8 +44,9 @@ I_y &= \frac{\partial I}{\partial y} \approx
 \end{array}\right] *\left(\left[\begin{array}{lll}
 1 & 2 & 1
 \end{array}\right] * I\right)\\
-\end{aligned}
 $$
+
+
 
 note: convolution = 1. flip kernel, 2. correlation with the flipped kernel  
 note: we use $[1\ 2\ 1]$ to smoothen the operator $\frac{\partial}{\partial x},\frac{\partial}{\partial y}$ in direction of $y, x$
