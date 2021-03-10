@@ -42,20 +42,12 @@ if __name__ == "__main__":
     img_gray = cv2.imread('./images/low_contrast.jpg', cv2.IMREAD_GRAYSCALE)
     img_pad = pad2d(img_gray[:, 0:512])
     freq_spectrum = dct2d(img_pad)
-    log_norm_freq = 10 *np.log( norm(freq_spectrum) + 1 )
+    log_norm_freq = 20 *np.log( norm(freq_spectrum) + 1 )
     cv2.imwrite('./output_images/chap4_x_dct2d_freq.jpg', log_norm_freq)
     plt.imshow(log_norm_freq, cmap='gray') # show in gray scale
     plt.show()
     plt.savefig('./output_images/chap4_x_dct2d_freq_plt.jpg') # not grayscale
     plt.close()
-
-    # freq_center = shift_freq_center(freq_spectrum)
-    # log_norm_freq_center = 20 * np.log( norm(freq_center) + 1 )
-    # cv2.imwrite('./output_images/chap4_3_freq_center.jpg', log_norm_freq_center)
-    # plt.imshow(log_norm_freq_center, cmap='gray') # show in gray scale
-    # plt.show()
-    # plt.savefig('./output_images/chap4_3_freq_center_plt.jpg') # not grayscale
-    # plt.close()
 
     img_recover = idct2d(freq_spectrum)
     img_re = np.floor( img_recover ).astype(int)
